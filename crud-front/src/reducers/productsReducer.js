@@ -8,7 +8,25 @@ export default (state = initialState, action) => {
       return {
         ...state,
         products: action.payload.products
-      }
+      };
+
+    case 'ADD_PRODUCT':
+      return {
+        ...state,
+        products: state.products.concat(action.payload.products)
+      };
+
+    case 'UPDATE_PRODUCT':
+      return {
+        ...state,
+        products: state.products.concat(action.payload.products)
+      };
+
+    case 'DELETE_PRODUCT':
+      return {
+        ...state,
+        products: action.payload.products
+      };
 
     default:
       return state;

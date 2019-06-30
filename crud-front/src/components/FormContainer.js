@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { addProduct } from '../actions';
+
+import { Link } from 'react-router-dom';
 
 class FormContainer extends Component {
   state = { term: '' };
@@ -6,6 +10,7 @@ class FormContainer extends Component {
   hundleSubmit = e => {
     e.preventDefault();
     
+    this.props.addProduct(this.state.term);
   }
 
   render() { 
@@ -18,9 +23,12 @@ class FormContainer extends Component {
             onChange={e => this.setState({ term: e.target.value })} 
           />
         </form>
+        <Link to="/">
+          トップへ
+        </Link>
       </div>
     );
   }
 }
  
-export default FormContainer;
+export default connect(null, { addProduct })(FormContainer);

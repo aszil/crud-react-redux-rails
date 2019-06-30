@@ -5,6 +5,7 @@ import history from './history';
 
 import MainContainer from './components/MainContainer';
 import FormContainer from './components/FormContainer';
+import EditContainer from './components/EditContainer';
 
 class App extends React.Component {
   render() {
@@ -13,6 +14,7 @@ class App extends React.Component {
         <Switch>
           <Route path="/" exact component={MainContainer} />
           <Route path="/new" component={FormContainer}  />
+          <Route path="/edit/:id" component={EditContainer} />
         </Switch>
       </Router>
     );

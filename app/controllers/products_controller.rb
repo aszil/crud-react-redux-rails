@@ -4,17 +4,9 @@ class ProductsController < ApplicationController
     render json: @products
   end
 
-  def new
-    @product = Product.new
-  end
-
   def store
     @product = Product.create(product: params[:product])
     render json: @product
-  end
-
-  def edit
-    @product = Product.find(params[:id])
   end
 
   def update

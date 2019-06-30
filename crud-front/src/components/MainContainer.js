@@ -2,19 +2,29 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { connect } from 'react-redux';
-import { fetchProducts } from '../actions';
+import { fetchProducts, deleteProduct } from '../actions';
 
 class MainContainer extends React.Component {
   componentDidMount() {
     this.props.fetchProducts();
   }
 
+  deleteProduct = (id, i) => {
+    this.props.deleteProduct(id, i);
+  }
+
   showProducts = () => {
-    return this.props.products.map(product => {
+    return this.props.products.map((product, i) => {
       return (
-        <ul key={product.id}>
+        <ul key={i}>
           <li>
             {product.product}
+            <Link to={`/edit/${product.id}`}>
+              <button>編集</button>
+            </Link>
+            <button onClick={() => this.deleteProduct(product.id, i)}>
+              削除
+            </button>
           </li>
         </ul>
       );
@@ -41,4 +51,4 @@ const mapStateToProps = state => {
   }
 }
  
-export default connect(mapStateToProps, { fetchProducts })(MainContainer);
+export default connect(mapStateToProps, { fetchProducts, deleteProduct })(MainContainer);
