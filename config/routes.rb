@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root to: 'products#index'
+  post '/products', to: 'products#store'
+  get '/new', to: 'products#new'
+  get '/edit/:id', to: 'products#edit', as: 'edit'
+  put '/products/:id', to: 'products#update'
+  delete '/products/:id', to: 'products#destroy', as: 'destroy'
 end
