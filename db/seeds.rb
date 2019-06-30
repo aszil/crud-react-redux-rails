@@ -8,5 +8,9 @@
 Product.create([
   { product: '犬' },
   { product: '猫' },
-  { product: '猿' }
+  { product: '猿' },
+  { product: '馬' },
+  { product: '羊' },
+  { product: '鯨' },
+  { product: '蛇' },
 ])
